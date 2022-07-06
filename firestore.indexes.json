@@ -1,0 +1,19 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "nfts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "owner_lowerCase",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "tokenId",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

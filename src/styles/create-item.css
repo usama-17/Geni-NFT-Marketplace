@@ -1,0 +1,69 @@
+.form__input input,
+.form__input textarea {
+  width: 100%;
+  padding: 7px 25px;
+  color: black;
+  font-size: 0.8rem;
+  background: transparent;
+  border: 2px solid rgb(186, 193, 199);
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form__input {
+  margin-bottom: 15px;
+}
+
+
+.swal2-styled.swal2-confirm{
+  background-color: #89B450 !important;
+}
+
+.form__input label {
+  color: black;
+  margin-bottom: 10px;
+}
+
+.active1{
+  color: #89B450 !important;
+  font-weight: bold;
+}
+.nonactive1{
+  color: rgb(112, 122, 131) !important;
+  font-weight: 500;
+}
+
+.form__input .upload__input {
+  padding: 40px 25px;
+}
+.select_profile{
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  background-color: #acabab !important;
+  font-size: 1rem !important;
+  width: 100%;
+}
+.form-control{
+  border:2px solid rgb(186, 193, 199) !important;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: grey;
+  opacity: 1; /* Firefox */
+}
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+.dropdown-menu{
+  position: absolute !important;
+  top:3px !important;
+  left:80px !important;
+}
+
+
+@media only screen and (max-width: 576px) {
+  .create__item {
+    margin-top: 15px;
+  }
+}

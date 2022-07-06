@@ -1,0 +1,1263 @@
+{
+  "contractName": "Marketplace",
+  "address": "0x7147aac7E7C973C2754Fc820bb549D31c4ea079C",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "__currencyToken",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IERC721Metadata",
+          "name": "__charactersCollection",
+          "type": "address"
+        },
+        {
+          "internalType": "contract IERC1155",
+          "name": "__skinsCollection",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "listingId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "contract IERC721Metadata",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "CharacterListed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "listingId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "CharacterListingCancelled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "listingId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "contract IERC721Metadata",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "CharacterListingFulfilled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "offerId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "CharacterOfferCancelled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "offerId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "contract IERC721Metadata",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "CharacterOfferFulfilled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "offerId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "contract IERC721Metadata",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "expiry",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "CharacterOffered",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "ClaimedFunds",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "FundsAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "listingId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "contract IERC1155",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "SkinsListed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "listingId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "SkinsListingCancelled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "listingId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "contract IERC1155",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "oldOwner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "SkinsListingFulfilled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "offerId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "SkinsOfferCancelled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "offerId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "contract IERC1155",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "oldOwner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "SkinsOfferFulfilled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "offerId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "contract IERC1155",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "expiry",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentTime",
+          "type": "uint256"
+        }
+      ],
+      "name": "SkinsOffered",
+      "type": "event"
+    },
+    {
+      "stateMutability": "nonpayable",
+      "type": "fallback"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "_characterListings",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "listingId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IERC721Metadata",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "fulfilled",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "cancelled",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "_characterOffers",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "offerId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IERC721Metadata",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expiry",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "fulfilled",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "cancelled",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "name": "_characterOwners",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "_charactersCollection",
+      "outputs": [
+        {
+          "internalType": "contract IERC721Metadata",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "_currencyToken",
+      "outputs": [
+        {
+          "internalType": "contract IERC20",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "name": "_highestCharacterOffer",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "offerId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IERC721Metadata",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expiry",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "fulfilled",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "cancelled",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "_skinsCollection",
+      "outputs": [
+        {
+          "internalType": "contract IERC1155",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "_skinsListings",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "listingId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IERC1155",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "fulfilled",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "cancelled",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "_skinsOffers",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "offerId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "contract IERC1155",
+          "name": "collection",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "expiry",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "fulfilled",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "cancelled",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "name": "_skinsOwners",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "_userFunds",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "__listingId",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelCharacterListing",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "__offerId",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelCharacterOffer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "__listingId",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelSkinsListing",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "__offerId",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancelSkinsOffer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "claimFunds",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "__offerId",
+          "type": "uint256"
+        }
+      ],
+      "name": "fulfillCharacterOffer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "__listingId",
+          "type": "uint256"
+        }
+      ],
+      "name": "fulfillCharactersListing",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "__listingId",
+          "type": "uint256"
+        }
+      ],
+      "name": "fulfillSkinsListing",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "__offerId",
+          "type": "uint256"
+        }
+      ],
+      "name": "fulfillSkinsOffer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "listingCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "__tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "__price",
+          "type": "uint256"
+        }
+      ],
+      "name": "makeCharacterListing",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "__tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "__price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "__expiry",
+          "type": "uint256"
+        }
+      ],
+      "name": "makeCharacterOffer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "__tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "__amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "__price",
+          "type": "uint256"
+        }
+      ],
+      "name": "makeSkinsListing",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "__tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "__price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "__amount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "__expiry",
+          "type": "uint256"
+        }
+      ],
+      "name": "makeSkinsOffer",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "offerCount",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "onERC1155BatchReceived",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "onERC1155Received",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
+}

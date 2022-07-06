@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #14141f !important;
+    font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2 {
+    color: #000000;
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+p {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #000000;
+    opacity: 85%;
+    line-height: 35px;
+    margin-bottom: 0 !important;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+a:hover {
+    color: unset;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+section,
+footer {
+    padding: 30px 0px;
+}
+
+/* =========== custom scroll-bar ========= */
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #343444;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 2em;
+    background: #89B450;
+}
+
+.accordion-button {
+    color: #262626 !important;
+    background-color: #e5e4e4 !important;
+}
+
+.accordion-body {
+    background-color: white !important;
+    padding: 0 !important;
+    color: #000000 !important;
+}
+
+.accordion-body-padding {
+    padding: 1rem 1.25rem;
+}
+
+.accordion-item {
+    border: 1px solid #D9DADB
+}
+
+.nft-description {
+    line-height: 1.25rem;
+}
+.table-dark {
+    --bs-table-bg:white!important;
+    --bs-table-striped-bg: #424257 !important;
+    --bs-table-striped-color: #fff;
+    --bs-table-active-bg: #373b3e;
+    --bs-table-active-color: #fff;
+    --bs-table-hover-bg: #323539;
+    --bs-table-hover-color: #fff;
+    color: #232121 !important;
+    border: 1px solid #D9DADB !important;
+}
+
+.property-card {
+    background-color: rgba(13, 110, 253, 0.05);
+    border: 2px solid #89B450;
+    border-radius: 10px;
+    text-align: center;
+    padding: 0.5rem 1rem;
+}
+
+.property-name {
+    font-size: 12px;
+    color: black ;
+    line-height: 1.5rem;
+}
+
+.property-value {
+    line-height: 2rem;
+    color:black
+}
+
+nav.rdt_Pagination {
+    background-color: rgba(224, 224, 238, 0.78) !important;
+    color: #000000;
+}
+
+.sc-dmRaPn {
+    border-radius: 0 !important;
+}
+
+/*.rdt_TableHeader {*/
+/*    background-color: #e0e0ee !important;*/
+/*    color: #000000 !important;*/
+/*    border-radius: 0;*/
+/*}*/
+
+/*.rdt_TableRow {*/
+/*    background-color: #e0e0ee !important;*/
+/*    color: #000000 !important;*/
+/*}*/
+
+.rdt_TableHeadRow {
+    /*background-color: #e0e0ee !important;*/
+    color: #101010 !important;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.offerCardHeader {
+    background-color: rgba(224, 224, 238, 0.71) !important;
+    color: #101010 !important;
+}
+
+/*.rdt_TableBody {*/
+/*    background-color: #343444 !important;*/
+/*}*/
+
+.coinDropDown {
+    line-height: 2.5rem;
+}
+
+.optionContainer {
+    background-color: #212529;
+}
+
+#search_input {
+    color: black;
+}
+.staking{
+      box-shadow: 1px 3px 10px #888888;
+}
+.staking-body{
+    padding: 0 !important;
+}
+.staking-header{
+   border-radius: 20px !important;
+    padding: 15px!important;
+    border: none !important;
+    background-color: #89B450 !important;
+    text-align: center;
+    color: white;
+}
+.staking-div{
+    border: 2px solid #d4e5c0 !important;
+    /*background-color: #D9DADB ;*/
+}
+
+
+.staking-invest{
+    font-size: 20px;
+    font-weight:600;
+    color: #000000;
+}
+
+.staking__input input {
+
+    width: 100%;
+    padding: 7px 25px;
+    color: black;
+    font-size: 0.8rem;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+    height: 20px;
+    outline: none;
+    border-radius: 5px;
+}
+
+.mint-section {
+    border-style: dashed !important;
+    border-color: #89B450;
+}
+
+.mint-text {
+    color: #89B450;
+}
+
+.font-mrb {
+    font-family: "Mr.B";
+    font-weight: normal;
+    font-style: normal;
+}
+
+

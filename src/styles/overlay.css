@@ -1,0 +1,33 @@
+#overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    cursor: pointer;
+}
+
+#text {
+    font-family: "Krazy Nights";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 93px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -.015em;
+    color: #fff;
+    text-shadow: 4px 4px 0 #e97133;
+    -webkit-transform: rotate(-4.7deg);
+    transform: rotate(-4.7deg);
+    /*margin: 24rem 7rem 46rem 27rem;*/
+    /*margin: 24rem 7rem 46rem 27rem;*/
+}
+
+#modal-content {
+    color: black;
+}

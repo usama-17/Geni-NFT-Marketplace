@@ -1,0 +1,16 @@
+{
+    "secretKey": "uU7@aXFtam?yn3@z",
+    "dbListings": "listings",
+    "dbOffers": "offers",
+    "dbNfts": "nfts",
+    "dbActivity": "activity",
+    "transactionLimit": 1,
+    "firebaseConfig": {
+        "apiKey": "AIzaSyALcDED852swh4QMM2CoM48DGPQl_9l8l4",
+        "authDomain": "geni-nft-marketplace.firebaseapp.com",
+        "projectId": "geni-nft-marketplace",
+        "storageBucket": "geni-nft-marketplace.appspot.com",
+        "messagingSenderId": "1041585692037",
+        "appId": "1:1041585692037:web:11049bcc4baa7781c2f8ec"
+    }
+}
