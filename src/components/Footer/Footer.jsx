@@ -64,7 +64,7 @@ const COMPANY = [
 
 const Footer = () => {
   return (
-      <footer className="footer">
+      <footer className="footer fixed-bottom">
         <Container>
           <Row>
             <Col lg="4" md="6" sm="6">
