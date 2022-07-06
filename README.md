@@ -2,7 +2,8 @@
 
 ## npm install 
 After clone or download the code, First step is to install node modules.
-In the root directory run : npm install
+In the root directory run : 
+npm install
 
 
 ## npm start
