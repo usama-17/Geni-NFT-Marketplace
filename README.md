@@ -21,3 +21,7 @@ To read the complete guide visit this file: https://docs.google.com/document/d/1
 # Learn More
 You can learn more in the Create React App documentation.
 To learn React, check out the React documentation.
+
+# Refrences
+  ### Template Link: https://github.com/muhib160/React-NFT-Website#learn-more
+  ### Live: https://geni-nft-marketplace.web.app
