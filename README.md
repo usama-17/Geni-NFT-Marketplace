@@ -1,7 +1,12 @@
 # Geni-NFT-Marketplace
 
-After clone or download the code, In the project directory, you can run:
+## npm install 
+After clone or download the code, First step is to install node modules.
+In the root directory run : npm install
 
+
+## npm start
+In the project directory, you can run:
 npm start
 Runs the app in the development mode.
 Open http://localhost:3000 to view it in the browser.
