@@ -19,7 +19,7 @@ You will also see any lint errors in the console.
 To create build you can run the command: npm run build.
 
 ### Home Page
-Home page showing all the collection and of nfts click on any nft card will lead to its detail page. The Explore button on the homepage brings users to the market and "Create" button will take you to the "Create Module" page.
+Home page showing all the collection and of nfts click on any nft card will lead to its detail page. The Explore button on the homepage brings users to the market and "Create" button will take you to the "Create" page.
 
 ### Buy Coins
 To perform any transaction in application user needs our custom token. The header's **Buy Coins Now** option will launch Uniswap, allowing you to replace any other user token with our custom token.
